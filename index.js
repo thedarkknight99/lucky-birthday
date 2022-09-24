@@ -7,13 +7,18 @@ const output = document.querySelector("#output");
 checkBtn.addEventListener("click", checkDateOfBirth);
 
 function checkDateOfBirth() {
-    var dobSum = calculateSum(dateOfBirth.value);
-    var inputLuckyNumber = Number(luckyNumber.value);
-    if (dateOfBirth.value && inputLuckyNumber) {
-        compareValues(dobSum, inputLuckyNumber);
+    if (Number(luckyNumber.value) > 0) {
+        var dobSum = calculateSum(dateOfBirth.value);
+        var inputLuckyNumber = Number(luckyNumber.value);
+        if (dateOfBirth.value && inputLuckyNumber) {
+            compareValues(dobSum, inputLuckyNumber);
+        }
+        else {
+            output.innerText = "Please enter both the fields"
+        }
     }
     else {
-        output.innerText = "Please Enter both the fields"
+        output.innerText = "Please enter positive lucky number. Negative values are not allowed."
     }
 }
 
